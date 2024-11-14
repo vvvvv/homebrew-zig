@@ -15,6 +15,11 @@ brew tap vvvvv/zig
 Once the tap is added, simply run:
 
 ```bash
+brew install --cask zig@nightly
+```
+
+If you run into any issues, try installing it by running:
+```bash
 brew install --cask vvvvv/zig/zig@nightly
 ```
 

@@ -1,0 +1,38 @@
+name: Update Zig Nightly Cask
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+
+jobs:
+  update_zig_nightly:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false 
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch Latest Zig Nightly Version
+        run: |
+          bash .github/workflows/scripts/update_zig_nightly.sh
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          if ! git diff --ignore-all-space --ignore-blank-lines --quiet; then
+            git add Casks/zig@nightly.rb
+            git commit -m "workflow: Updated Zig Nightly Cask to version $(awk '/version.*"[a-zA-Z0-9\.\-\+]+"/{ gsub(/["]+/, "", $2); print $2; }' Casks/zig@nightly.rb)"
+            git push
+          else
+            echo "No changes detected."
+          fi

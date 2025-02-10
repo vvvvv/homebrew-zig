@@ -31,7 +31,7 @@ If Gatekeeper displays the following error:
 You can try removing the `com.apple.quarantine` extended attribute by running:
 
 ```sh
-xattr -d -r com.apple.quarantine "$( dirname "$( readlink -f "$( command -v zig )" )" )"
+xattr -d -r com.apple.quarantine "$( dir="$( readlink -f "$( command -v zig )" )" && dirname "${dir}" )"
 ```
 
 Alternatively, you can uninstall Zig and reinstall it using the `--no-quarantine` flag:

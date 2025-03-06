@@ -6,8 +6,8 @@ cask "zig@nightly" do
   arch arm: "aarch64", intel: "x86_64"
   version "0.14.0"
 
-  sha256 arm: "b71e4b7c4b4be9953657877f7f9e6f7ee89114c716da7c070f4a238220e95d7e",
-        intel: "685816166f21f0b8d6fc7aa6a36e91396dcd82ca6556dfbe3e329deffc01fec3"
+  sha256 arm: "860028deb178f8dc809135d51a52f30e5d3e645650a86fbbe3a8a12d73fe5486",
+        intel: "d8bca68733720c3352b5204783880fb7bb6df573d8e5846c974d4d6e98a1fce7"
 
   url "https://ziglang.org/builds/zig-macos-#{arch}-#{version}.tar.xz"
 

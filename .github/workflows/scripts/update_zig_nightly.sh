@@ -65,7 +65,7 @@ for i in "${!archs[@]}"; do
   #   url "https://ziglang.org/builds/zig-#{arch}-#{version}.tar.xz"
   # the sed expression substitutes #{arch} and #{version} with the actual arch and version respectively
   url="$(sed -n \
-    '/url.*https:\/\/ziglang.org/{ s%.*"\(https://.*\)"%\1%;s%#{arch}%'"${arch}"'%g;s%#{version}%'"${latest_version}"'%gp; }' \
+    '/url.*https:\/\/ziglang.org/{ s%.*"\(https://.*\)"%\1%;s%#{arch}%'"${arch}"'%;s%#{version}%'"${latest_version}"'%p; }' \
     <<<"${content}")"
 
   http_status="$(curl --head --write-out "%{http_code}" --silent --fail --output /dev/null "${url}")"

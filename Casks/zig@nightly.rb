@@ -4,10 +4,10 @@ cask "zig@nightly" do
   homepage "https://ziglang.org/"
 
   arch arm: "aarch64-macos", intel: "x86_64-macos"
-  version "0.16.0-dev.655+6893e7fee"
+  version "0.16.0-dev.660+27aba2d77"
 
-  sha256 arm: "2e2d0a49e4bd0581e9f6f0a8cf182058f398edd2140af07be8cc4a07576d0519",
-        intel: "a5852d701217a2ce20783856211e0fc3af4bb93b747e75fa83f62a44c19fe274"
+  sha256 arm: "36ac85b7fde3a6ec08ef942149aba3685ee6d01cfa0f4e29feb621bbb5a48341",
+        intel: "aa36c3dbfb87baf47508f3ca4b9b30fd3f7eabf2354d1c8876860875829b48d9"
 
   url "https://ziglang.org/builds/zig-#{arch}-#{version}.tar.xz"
 

@@ -54,5 +54,4 @@ Both options are rather unsatisfactory.
 ### I installed zig@nightly but got version 'x.y.z build 69+deadbeef', while there's a newer version available on ziglang.org/downloads. What gives?
 
 This repo uses a GitHub Action to keep the Cask up-to-date with the latest Zig nightly release.  
-The action runs twice a day at 6 AM/PM UTC, so there might be a short delay before the newest version is available through Homebrew.  
-If this lag is causing you major physical and/or mental pain, let me know and I'll see if we can update the cask more frequently. 
+The action runs hourly, so there might be a short delay before the newest version is available through Homebrew.  

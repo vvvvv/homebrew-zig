@@ -2,7 +2,7 @@ name: Update Zig Nightly Cask
 
 on:
   schedule:
-    - cron: '0 6,18 * * *'
+    - cron: '9 * * * *'
   workflow_dispatch:
 
 jobs:

@@ -13,4 +13,7 @@ cask "zig@nightly" do
 
   binary "zig-#{arch}-#{version}/zig"
 
+  postflight_steps do
+    run "xattr", args: ["-rd", "com.apple.quarantine", "{{staged_path}}/zig"]
+  end
 end
